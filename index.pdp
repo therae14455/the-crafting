@@ -1,0 +1,50 @@
+{
+  "game": "The Crafting",
+
+  "player": {
+    "level": 1,
+    "xp": 0,
+    "gold": 0
+  },
+
+  "resources": {
+    "wood": 0,
+    "stone": 0,
+    "iron": 0
+  },
+
+  "tools": {
+    "axe": 0,
+    "pickaxe": 0
+  },
+
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Collect 10 Wood",
+      "goal": 10,
+      "type": "wood",
+      "reward": {
+        "gold": 10
+      }
+    },
+    {
+      "id": 2,
+      "text": "Collect 5 Stone",
+      "goal": 5,
+      "type": "stone",
+      "reward": {
+        "gold": 15
+      }
+    },
+    {
+      "id": 3,
+      "text": "Craft 1 Axe",
+      "goal": 1,
+      "type": "axe",
+      "reward": {
+        "gold": 25
+      }
+    }
+  ]
+}
