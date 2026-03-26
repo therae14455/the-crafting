@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Crafting</title>
+<style>
+    body {
+        font-family: Arial;
+        background: #1e1e2f;
+        color: white;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        background: #111;
+        padding: 15px;
+        margin: 0;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 8px;
+        background: #4caf50;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    button:hover {
+        background: #45a049;
+    }
+
+    .box {
+        background: #2a2a40;
+        padding: 15px;
+        margin: 10px auto;
+        width: 250px;
+        border-radius: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h1>The Crafting</h1>
+
+<div class="container">
+
+    <div class="box">
+        <h3>Resources</h3>
+        Wood: <span id="wood">0</span><br>
+        Stone: <span id="stone">0</span><br>
+        Iron: <span id="iron">0</span>
+    </div>
+
+    <div class="box">
+        <h3>Gather</h3>
+        <button onclick="gatherWood()">Chop Wood</button>
+        <button onclick="gatherStone()">Mine Stone</button>
+        <button onclick="gatherIron()">Mine Iron</button>
+    </div>
+
+    <div class="box">
+        <h3>Craft</h3>
+        <button onclick="craftAxe()">Craft Axe (10 Wood, 5 Stone)</button><br>
+        <button onclick="craftPickaxe()">Craft Pickaxe (15 Wood, 10 Stone, 5 Iron)</button>
+    </div>
+
+    <div class="box">
+        <h3>Inventory</h3>
+        Axe: <span id="axe">0</span><br>
+        Pickaxe: <span id="pickaxe">0</span>
+    </div>
+
+</div>
+
+<script>
+    let wood = 0;
+    let stone = 0;
+    let iron = 0;
+
+    let axe = 0;
+    let pickaxe = 0;
+
+    function updateUI() {
+        document.getElementById("wood").innerText = wood;
+        document.getElementById("stone").innerText = stone;
+        document.getElementById("iron").innerText = iron;
+        document.getElementById("axe").innerText = axe;
+        document.getElementById("pickaxe").innerText = pickaxe;
+    }
+
+    function gatherWood() {
+        wood += 1 + axe;
+        updateUI();
+    }
+
+    function gatherStone() {
+        stone += 1 + pickaxe;
+        updateUI();
+    }
+
+    function gatherIron() {
+        iron += 1;
+        updateUI();
+    }
+
+    function craftAxe() {
+        if (wood >= 10 && stone >= 5) {
+            wood -= 10;
+            stone -= 5;
+            axe += 1;
+        } else {
+            alert("Not enough resources!");
+        }
+        updateUI();
+    }
+
+    function craftPickaxe() {
+        if (wood >= 15 && stone >= 10 && iron >= 5) {
+            wood -= 15;
+            stone -= 10;
+            iron -= 5;
+            pickaxe += 1;
+        } else {
+            alert("Not enough resources!");
+        }
+        updateUI();
+    }
+
+    updateUI();
+</script>
+
+</body>
+</html>
